@@ -37,6 +37,30 @@ app.get('/', function homepage(req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
 
+app.get('/api/profile', function profilePage(req, res) {
+  res.json();
+});
+
+app.get('/api/vacations', function vacationsPage(req, res) {
+  res.json();
+});
+
+app.post('/api/vacations', function addVacation(req, res) {
+  res.json();
+});
+
+app.get('/api/vacations/:id', function showVacation(req, res) {
+  res.json();
+});
+
+app.post('/api/vacations/:id', function updateVacation(req, res) {
+  res.json();
+});
+
+app.delete('/api/vacations/:id', function deleteVacation(req, res) {
+  res.json();
+});
+
 
 /*
  * JSON API Endpoints
@@ -54,6 +78,7 @@ app.get('/api', function api_index(req, res) {
       {method: "GET", path: "/api/profile", description: "Information about me"},
       {method: "GET", path: "/api/vacations", description: "A collection of vacations I've had"},
       {method: "POST", path: "/api/vacations", description: "Add a vacation to the vacations collection"},
+      {method: "GET", path: "/api/vacations/:id", description: "Get more information on one vacation"},
       {method: "PUT", path: "/api/vacations/:id", description: "Update/change a vacation's details"},
       {method: "DELETE", path: "/api/vacations/:id", description: "Remove a vacation from the collection"}
     ]
