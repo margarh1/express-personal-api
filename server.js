@@ -38,7 +38,13 @@ app.get('/', function homepage(req, res) {
 });
 
 app.get('/api/profile', function profilePage(req, res) {
-  res.json();
+  res.json({
+    name: 'Margaret Ha',
+    githubLink: 'https://github.com/margarh1',
+    githubProfileImage: '',
+    personalSiteLink: 'margarh1.github.io',
+    currentCity: 'Fremont, CA'
+  });
 });
 
 app.get('/api/vacations', function vacationsPage(req, res) {
