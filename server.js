@@ -19,7 +19,7 @@ app.use(function(req, res, next) {
  * DATABASE *
  ************/
 
-// var db = require('./models');
+var db = require('./models');
 
 /**********
  * ROUTES *
@@ -48,23 +48,50 @@ app.get('/api/profile', function profilePage(req, res) {
 });
 
 app.get('/api/vacations', function vacationsPage(req, res) {
-  res.json();
-});
-
-app.post('/api/vacations', function addVacation(req, res) {
-  res.json();
+  db.Vacation.find(function(err, vacations) {
+    if (err) { return console.log('index error: ' + err); }
+    res.json(vacations);
+  })
 });
 
 app.get('/api/vacations/:id', function showVacation(req, res) {
-  res.json();
+  db.Vacation.findById(req.params.id, function(err, vacation) {
+    if (err) { return console.log("show error: " + err); }
+    res.json(vacation);
+  });
 });
 
-app.post('/api/vacations/:id', function updateVacation(req, res) {
-  res.json();
+app.post('/api/vacations', function addVacation(req, res) {
+  var newVacation = new db.Vacation({
+    year: req.body.year,
+    location: req.body.location,
+    hasPhotos: req.body.hasPhotos
+  });
+
+  newVacation.save(function(err, vacation) {
+    if (err) { return console.log('create error: ' + err); }
+    console.log('created ', vacation.year);
+    res.json(vacation);
+  });
+});
+
+app.put('/api/vacations/:id', function updateVacation(req, res) {
+  db.Vacation.findById({ _id: vacationId }, function(err, vacation) {
+    if (err) { return console.log(err) };
+    vacation.year = req.body.year,
+    vacation.location = req.body.location,
+    vacation.hasPhotos = req.body.hasPhotos
+    res.json(vacation);
+  })
 });
 
 app.delete('/api/vacations/:id', function deleteVacation(req, res) {
-  res.json();
+  var vacationId = req.params.id;
+
+  db.Vacation.findOneAndRemove({ _id: vacationId }, function(err, deletedVacation) {
+    if (err) { return console.log(err) };
+    res.json();
+  });
 });
 
 
@@ -77,14 +104,14 @@ app.get('/api', function api_index(req, res) {
   res.json({
     woopsIForgotToDocumentAllMyEndpoints: false,
     message: "Welcome to my personal api! Here's what you need to know!",
-    documentationUrl: "https://github.com/margarh1/express_personal_api/README.md", // CHANGE ME
-    baseUrl: "http://YOUR-APP-NAME.herokuapp.com", // CHANGE ME
+    documentationUrl: "https://github.com/margarh1/express_personal_api/README.md",
+    baseUrl: "http://aqueous-basin-25416.herokuapp.com",
     endpoints: [
       {method: "GET", path: "/api", description: "Describes all available endpoints"},
       {method: "GET", path: "/api/profile", description: "Information about me"},
       {method: "GET", path: "/api/vacations", description: "A collection of vacations I've had"},
-      {method: "POST", path: "/api/vacations", description: "Add a vacation to the vacations collection"},
       {method: "GET", path: "/api/vacations/:id", description: "Get more information on one vacation"},
+      {method: "POST", path: "/api/vacations", description: "Add a vacation to the vacations collection"},
       {method: "PUT", path: "/api/vacations/:id", description: "Update/change a vacation's details"},
       {method: "DELETE", path: "/api/vacations/:id", description: "Remove a vacation from the collection"}
     ]
