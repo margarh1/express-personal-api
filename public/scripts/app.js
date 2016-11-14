@@ -11,8 +11,15 @@ $(document).ready(function(){
   });
 
   function onSuccess(json) {
+    Handlebars.registerHelper('allLocation', function(places) {
+      var allPlaces = "";
+      for (place in places) {
+        allPlaces = place + ' ';
+      };
+      return allPlaces;
+    });
+
     var vacationsSource = $('#vacations-template').html();
-    console.log(vacationsSource);
     var vacationsTemplate = Handlebars.compile(vacationsSource);
     var vacationsHtml = vacationsTemplate({ vacations: json });
     $('.vacations').append(vacationsHtml);
