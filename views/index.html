@@ -21,22 +21,31 @@
     <div class="container">
       <div class="row">
         <div class="col-md-8 col-md-offset-2">
-          <h1>Under Construction</h1>
+          <h1>Personal API (still under construction)</h1>
           <h4><a href="/api">Read My API Documentation</a></h4>
+          <form class="form-inline" id="newVacationForm">
+            <label for="year">Year</label>
+            <input type="text" name="year" placeholder="Year">
+            <label for="location">Location</label>
+            <input type="text" name="location" placeholder="Location">
+            <label for="hasPhotos">Photos?</label>
+            <input type="checkbox" name="hasPhotos">
+            <button type="submit">Add vacation</button>
+          </form>
           <div class="vacations">
-          <script id="vacations-template" type="text/x-handlebars-template">
-            {{#each vacations}}
-              <div class="col-md-10 col-md-offset-2 oneVacation">
-                <p>In {{year}}, I visited {{location}}, and
-              {{#if hasPhotos}}
-                I took pictures on this vacation.</p>
-              {{else}}
-                I didn't take pictures on this vacation.</p>
-              {{/if}}
-              <button type="button" name="button" class="delete-button" data-id={{_id}}>x</button>
-              </div>
-            {{/each}}
-          </script>
+            <script id="vacations-template" type="text/x-handlebars-template">
+              {{#each vacations}}
+                <div class="col-md-12 oneVacation">
+                  <p>In {{year}}, I visited {{location}}, and
+                {{#if hasPhotos}}
+                  I took pictures on this vacation.
+                {{else}}
+                  I didn't take pictures on this vacation.
+                {{/if}}
+                <button type="button" name="button" class="delete-button pull-right" data-id={{_id}}>x</button></p>
+                </div>
+              {{/each}}
+            </script>
           </div>
         </div>
       </div>
