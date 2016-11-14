@@ -16,23 +16,23 @@ var db = require('./models');
 
 var vacation_list = [
   {
-    year: 2003,
+    year: 2002,
     location: ['Jakarta, Indoensia', 'Singapore, Singapore', 'China'],
     hasPhotos: false
   },
   {
-    year: 2006,
+    year: 2005,
     location: ['Fort Lauderdale, Florida'],
+    hasPhotos: true
+  },
+  {
+    year: 2006,
+    location: ['San Diego, California', 'Grand Canyon, Arizona', 'Bryce Canyon, Utah', 'Las Vegas, Nevada'],
     hasPhotos: true
   },
   {
     year: 2007,
     location: ['Guangzhou, China', 'Beijing, China'],
-    hasPhotos: true
-  },
-  {
-    year: 2008,
-    location: ['San Diego, California', 'Grand Canyon, Arizona', 'Bryce Canyon, Utah', 'Las Vegas, Nevada'],
     hasPhotos: true
   },
   {

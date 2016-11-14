@@ -23,6 +23,21 @@
         <div class="col-md-8 col-md-offset-2">
           <h1>Under Construction</h1>
           <h4><a href="/api">Read My API Documentation</a></h4>
+          <div class="vacations">
+          <script id="vacations-template" type="text/x-handlebars-template">
+            {{#each vacations}}
+              <div class="col-md-8 col-md-offset-2">
+                <h3>{{year}}</h3>
+                <p>Visited: {{location}}</p>
+              {{#if hasPhotos}}
+                <p>I have pictures of this vacation.</p>
+              {{else}}
+                <p>I didn't take pictures on this vacation.</p>
+              {{/if}}
+              </div>
+            {{/each}}
+          </script>
+          </div>
         </div>
       </div>
     </div>
