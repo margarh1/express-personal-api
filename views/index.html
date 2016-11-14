@@ -26,13 +26,14 @@
           <div class="vacations">
           <script id="vacations-template" type="text/x-handlebars-template">
             {{#each vacations}}
-              <div class="col-md-8 col-md-offset-2">
-                <p>In {{year}}, I visited {{allLocation}}, and
+              <div class="col-md-10 col-md-offset-2 oneVacation">
+                <p>In {{year}}, I visited {{location}}, and
               {{#if hasPhotos}}
                 I took pictures on this vacation.</p>
               {{else}}
                 I didn't take pictures on this vacation.</p>
               {{/if}}
+              <button type="button" name="button" class="delete-button" data-id={{_id}}>x</button>
               </div>
             {{/each}}
           </script>
