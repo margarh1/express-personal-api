@@ -33,8 +33,8 @@ $(document).ready(function(){
 
 function onSuccess(json) {
   var vacationsSource = $('#vacations-template').html();
-  var vacationsTemplate = Handlebars.compile(vacationsSource);
-  var vacationsHtml = vacationsTemplate({ vacations: json });
+  vacationsTemplate = Handlebars.compile(vacationsSource);
+  vacationsHtml = vacationsTemplate({ vacations: json });
   $('.vacations').append(vacationsHtml);
 };
 
@@ -51,6 +51,5 @@ function addNewVacation(json) {
 };
 
 function deleteVacationSuccess(json) {
-  console.log(json);
 };
 

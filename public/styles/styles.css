@@ -10,6 +10,7 @@ h1 {
 }
 
 button {
+  text-align: center;
   display: inline-block;
   border-radius: 5px;
   opacity: 1;
@@ -21,7 +22,7 @@ button:focus {
 }
 
 .oneVacation {
-  margin: 5px 0;
+  margin: 15px 0;
 }
 
 .oneVacation:hover {
