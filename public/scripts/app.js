@@ -7,7 +7,6 @@ $(document).ready(function(){
     url: '/api/vacations',
     success: onSuccess,
     error: onError,
-    complete: console.log('Finished')
   });
 
   $('#newVacationForm').on('submit', function(event) {
@@ -17,8 +16,7 @@ $(document).ready(function(){
       url: '/api/vacations',
       data: $(this).serialize(),
       success: addNewVacation,
-      error: onError,
-      complete: console.log('New Vacation')
+      error: onError
     })
   });
 
@@ -27,8 +25,7 @@ $(document).ready(function(){
       method: 'DELETE',
       url: 'api/vacations/' + $(this).attr('data-id'),
       success: deleteVacationSuccess,
-      error: onError,
-      complete: console.log('Deleted Vacation')
+      error: onError
     })
   })
 
