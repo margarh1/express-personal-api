@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Blank</title>
+    <title>Personal API</title>
 
     <!-- STYLESHEETS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -27,12 +27,11 @@
           <script id="vacations-template" type="text/x-handlebars-template">
             {{#each vacations}}
               <div class="col-md-8 col-md-offset-2">
-                <h3>{{year}}</h3>
-                <p>Visited: {{location}}</p>
+                <p>In {{year}}, I visited {{location}} and
               {{#if hasPhotos}}
-                <p>I have pictures of this vacation.</p>
+                I took pictures on this vacation.</p>
               {{else}}
-                <p>I didn't take pictures on this vacation.</p>
+                I didn't take pictures on this vacation.</p>
               {{/if}}
               </div>
             {{/each}}
