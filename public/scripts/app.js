@@ -13,7 +13,7 @@ $(document).ready(function(){
   function onSuccess(json) {
     Handlebars.registerHelper('allLocation', function(places) {
       var allPlaces = "";
-      for (place in places) {
+      for (place in places.location) {
         allPlaces = place + ' ';
       };
       return allPlaces;
