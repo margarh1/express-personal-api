@@ -7,7 +7,7 @@ $(document).ready(function(){
     url: '/api/vacations',
     success: onSuccess,
     error: onError,
-    compelte: console.log('Finished')
+    complete: console.log('Finished')
   });
 
   $('#newVacationForm').on('submit', function(event) {
@@ -22,15 +22,14 @@ $(document).ready(function(){
     })
   });
 
-  $('.delete-button').on('click', function() {
-    console.log('this');
-    // $.ajax({
-    //   method: 'DELETE',
-    //   url: 'api/vacations/' + $(this).attr('data-id'),
-    //   success: deleteVacationSuccess,
-    //   error: onError,
-    //   complete: console.log('Deleted Vacation')
-    // })
+  $('.vacations').on('click', '.delete-button', function() {
+    $.ajax({
+      method: 'DELETE',
+      url: 'api/vacations/' + $(this).attr('data-id'),
+      success: deleteVacationSuccess,
+      error: onError,
+      complete: console.log('Deleted Vacation')
+    })
   })
 
 });
@@ -52,10 +51,9 @@ function onError(xhr, status, errorThrown) {
 function addNewVacation(json) {
   $('#newVacationForm input').val('');
   $('input:checked').prop('checked', false);
-  console.log(json.location);
 };
 
-function deleteVacationSucces(json) {
+function deleteVacationSuccess(json) {
   console.log(json);
 };
 

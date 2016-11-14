@@ -1,7 +1,7 @@
 body {
   color: #333;
   font-family: Helvetica, Arial, sans-serif;
-  background-color: lightblue; /* Sanity Check! */
+  background-color: antiquewhite;
 }
 
 h1 {
@@ -12,7 +12,7 @@ h1 {
 button {
   display: inline-block;
   border-radius: 5px;
-  opacity: 0.8;
+  opacity: 1;
   padding: 1px;
 }
 

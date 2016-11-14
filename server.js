@@ -90,7 +90,7 @@ app.delete('/api/vacations/:id', function deleteVacation(req, res) {
 
   db.Vacation.findOneAndRemove({ _id: vacationId }, function(err, deletedVacation) {
     if (err) { return console.log(err) };
-    res.json();
+    res.json(deletedVacation);
   });
 });
 
